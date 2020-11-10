@@ -9,6 +9,11 @@ use MuCTS\Laravel\WeChatPayV3\Kernel\BaseClient;
  */
 class Client extends BaseClient
 {
+    public static function classUrl()
+    {
+        return "/v3/certificates";
+    }
+
     public function all($query = null, array $options = [])
     {
         return parent::all($query, $options);

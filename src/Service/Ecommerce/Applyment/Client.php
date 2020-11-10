@@ -9,6 +9,11 @@ use MuCTS\Laravel\WeChatPayV3\Kernel\BaseClient;
  */
 class Client extends BaseClient
 {
+    public static function className()
+    {
+        return 'applyment4sub/applyment';
+    }
+
     public function retrieve(string $id, $query = null, array $options = [])
     {
         return parent::retrieve($id, $query, $options);
