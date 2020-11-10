@@ -15,7 +15,7 @@ trait RestfulMethods
      */
     protected function all($query = null, array $options = [])
     {
-        $url = self::classUrl();
+        $url = static::classUrl();
         $opts = $options + ['query' => $query];
 
         return $this->request('GET', $url, $opts);
