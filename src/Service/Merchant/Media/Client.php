@@ -9,20 +9,25 @@ use MuCTS\Laravel\WeChatPayV3\Kernel\BaseClient;
  */
 class Client extends BaseClient
 {
+    public static function classUrl()
+    {
+        return "/v3/merchant/media/upload";
+    }
+
     /**
      * @param $fileName
-     * @param $content
+     * @param $file_path
      * @param $mimeType
      * @param array $options
      * @return mixed|\Psr\Http\Message\ResponseInterface
      * @throws \Throwable
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function upload($fileName, $content, $mimeType, array $options = [])
+    public function upload($fileName, $file_path, $mimeType, array $options = [])
     {
         $signPayload = json_encode([
             'filename' => $fileName,
-            'sha256' => hash('sha256', $content),
+            'sha256' => hash_file('sha256', $file_path),
         ]);
 
         $multipart = [
@@ -36,7 +41,7 @@ class Client extends BaseClient
             [
                 'name' => 'file',
                 'filename' => $fileName,
-                'contents' => $content,
+                'contents' => fopen($file_path, 'r'),
                 'headers' => [
                     'Content-Type' => $mimeType,
                 ],

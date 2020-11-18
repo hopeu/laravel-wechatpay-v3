@@ -14,6 +14,11 @@ class Client extends BaseClient
         return 'applyment4sub/applyment';
     }
 
+    public function instanceUrl($id)
+    {
+        return self::classUrl().'business_code/'.$id;
+    }
+
     public function retrieve(string $id, $query = null, array $options = [])
     {
         return parent::retrieve($id, $query, $options);
