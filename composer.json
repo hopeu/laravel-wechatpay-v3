@@ -8,10 +8,10 @@
         }
     ],
     "require": {
-        "ext-curl": "^7.2",
-        "ext-json": "^7.2",
-        "ext-openssl": "^7.2",
-        "php": "^7.2",
+        "ext-curl": "^7.2|^8.0",
+        "ext-json": "^7.2|^8.0",
+        "ext-openssl": "^7.2|^8.0",
+        "php": "^7.2|^8.0",
         "illuminate/support": "^7.5",
         "illuminate/container": "^7.5",
         "illuminate/translation": "^7.5",
